@@ -1,15 +1,41 @@
 package com.ganesh.hibernate.basic;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
+@Table(name="USER_DETAILS")
 public class UserDetails {
   
   @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  @Column(name="USER_ID")
   private int userId;
   
+  @Column(name="USER_NAME")
   private String userName;
+  
+  @Column(name = "JOINED_DATE")
+  @Temporal(TemporalType.DATE)
+  private Date joinedDate;
+  
+  @Transient
+  private String password;
+  
+  @Lob
+  @Column(name="BACKGROUND")
+  private String background;
+  
   
   public int getUserId() {
     return userId;
@@ -24,6 +50,25 @@ public class UserDetails {
     this.userName = userName;
   }
   
+  public Date getJoinedDate() {
+    return joinedDate;
+  }
+  public void setJoinedDate(Date joinedDate) {
+    this.joinedDate = joinedDate;
+  }
+  public String getPassword() {
+    return password;
+  }
+  public void setPassword(String password) {
+    this.password = password;
+  }
+  
+  public String getBackground() {
+    return background;
+  }
+  public void setBackground(String background) {
+    this.background = background;
+  }
   @Override
   public int hashCode() {
     final int prime = 31;
