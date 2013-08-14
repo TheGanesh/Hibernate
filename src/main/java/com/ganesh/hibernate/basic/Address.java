@@ -9,7 +9,7 @@ public class Address {
   @Column(name = "STREET")
   private String street;
   @Column(name = "APT")
-  private String apt;
+  private String apt;  
 
   public String getStreet() {
     return street;

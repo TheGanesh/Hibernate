@@ -20,7 +20,7 @@ public class Main {
 
     Address address = new Address();
     address.setApt("12345");
-    address.setStreet("Knox Ave");
+    address.setStreet("Knox Ave");  
 
     userDetails.setAddress(address);
     
