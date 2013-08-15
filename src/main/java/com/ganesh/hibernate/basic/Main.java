@@ -1,6 +1,8 @@
 package com.ganesh.hibernate.basic;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,11 +20,25 @@ public class Main {
     userDetails.setPassword("password");
     userDetails.setBackground("Developer");
 
-    Address address = new Address();
-    address.setApt("12345");
-    address.setStreet("Knox Ave");  
+    Address homeAddress = new Address();
+    homeAddress.setCity("Richfield");
+    homeAddress.setStreet("Knox Ave");
+    homeAddress.setPin(55423);
 
-    userDetails.setAddress(address);
+    userDetails.setHomeAddress(homeAddress);
+    
+    Address officeAddress = new Address();
+    officeAddress.setCity("Richfield");
+    officeAddress.setStreet("Penn Ave");
+    officeAddress.setPin(55423);
+    
+    userDetails.setOfficeAddress(officeAddress);
+     
+    List<Address> listOfAddresses = new ArrayList<Address>();
+    listOfAddresses.add(homeAddress);
+    listOfAddresses.add(officeAddress);
+    userDetails.setListOfAddresses(listOfAddresses);
+    
     
     SessionFactory sessionFactory = Singletons.getSessionFactory();
     Session session = sessionFactory.getCurrentSession();
@@ -34,8 +50,8 @@ public class Main {
 
     session = sessionFactory.getCurrentSession();
     session.beginTransaction();
-    UserDetails user2 = (UserDetails) session.get(UserDetails.class, 1);
-    System.out.println(user2.getUserName());
+    UserDetails user1 = (UserDetails) session.get(UserDetails.class, 1);
+    System.out.println(user1.getUserName());
 
   }
 }
