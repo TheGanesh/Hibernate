@@ -51,7 +51,10 @@ public class Main {
     session = sessionFactory.getCurrentSession();
     session.beginTransaction();
     UserDetails user1 = (UserDetails) session.get(UserDetails.class, 1);
+    session.close();
     System.out.println(user1.getUserName());
+   List<Address> addreses = (List<Address>) user1.getListOfAddresses();
+   System.out.println(addreses.get(0).getStreet());
 
   }
 }
