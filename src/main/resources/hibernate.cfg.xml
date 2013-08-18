@@ -28,7 +28,9 @@
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">create</property>
 
-		<mapping class="com.ganesh.hibernate.basic.UserDetails" />
+		<!-- <mapping class="com.ganesh.hibernate.basic.UserDetails" />  -->
+		<mapping class="com.ganesh.hibernate.one2one.UserDetails" />
+		<mapping class="com.ganesh.hibernate.one2one.Vehicle" />
 
 	</session-factory>
 </hibernate-configuration>
