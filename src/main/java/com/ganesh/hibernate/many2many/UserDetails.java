@@ -1,4 +1,4 @@
-package com.ganesh.hibernate.one2many;
+package com.ganesh.hibernate.many2many;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +25,12 @@ public class UserDetails {
   @Column(name = "USER_NAME")
   private String userName;
 
-  @OneToMany(mappedBy="user")
-// For OneToMany we dont need to have extra table so using mappedBy
-//  @JoinTable(
-//      name="USER_VEHICLE",
-//      joinColumns=@JoinColumn(name="USER_ID"),
-//      inverseJoinColumns=@JoinColumn(name="VEHICLE_ID"))
+  @ManyToMany
+  @JoinTable(
+     name="USER_VEHICLE",
+      joinColumns=@JoinColumn(name="USER_ID"),
+      inverseJoinColumns=@JoinColumn(name="VEHICLE_ID")
+     )
   
   private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
 

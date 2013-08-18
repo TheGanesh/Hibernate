@@ -35,8 +35,12 @@
 		<mapping class="com.ganesh.hibernate.one2one.Vehicle" />
 		 -->
 		
+		<!-- 
 		<mapping class="com.ganesh.hibernate.one2many.UserDetails" />
 		<mapping class="com.ganesh.hibernate.one2many.Vehicle" />
+		-->
+		<mapping class="com.ganesh.hibernate.many2many.UserDetails" />
+		<mapping class="com.ganesh.hibernate.many2many.Vehicle" />
 
 	</session-factory>
 </hibernate-configuration>
