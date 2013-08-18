@@ -1,4 +1,7 @@
-package com.ganesh.hibernate.one2one;
+package com.ganesh.hibernate.one2many;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,19 +24,21 @@ public class UserDetails {
 
   @Column(name = "USER_NAME")
   private String userName;
-  
-  @OneToOne
-  @JoinColumn(name="VEHICLE_ID")
-  private Vehicle vehicle;
-  
-  
 
-  public Vehicle getVehicle() {
-    return vehicle;
+  @OneToMany
+  @JoinTable(
+      name="USER_VEHICLE",
+      joinColumns=@JoinColumn(name="USER_ID"),
+      inverseJoinColumns=@JoinColumn(name="VEHICLE_ID"))
+  
+  private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
+
+  public Collection<Vehicle> getVehicles() {
+    return vehicles;
   }
 
-  public void setVehicle(Vehicle vehicle) {
-    this.vehicle = vehicle;
+  public void setVehicles(Collection<Vehicle> vehicles) {
+    this.vehicles = vehicles;
   }
 
   public int getUserId() {

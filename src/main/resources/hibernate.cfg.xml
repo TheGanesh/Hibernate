@@ -29,8 +29,14 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- <mapping class="com.ganesh.hibernate.basic.UserDetails" />  -->
+		
+		<!-- 
 		<mapping class="com.ganesh.hibernate.one2one.UserDetails" />
 		<mapping class="com.ganesh.hibernate.one2one.Vehicle" />
+		 -->
+		
+		<mapping class="com.ganesh.hibernate.one2many.UserDetails" />
+		<mapping class="com.ganesh.hibernate.one2many.Vehicle" />
 
 	</session-factory>
 </hibernate-configuration>
