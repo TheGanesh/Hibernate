@@ -1,8 +1,9 @@
-package com.ganesh.hibernate.one2many;
+package com.ganesh.hibernate.cascade;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,13 +24,7 @@ public class UserDetails {
   @Column(name = "USER_NAME")
   private String userName;
 
-  @OneToMany(mappedBy="user")
-// For OneToMany we dont need to have extra table so using mappedBy
-//  @JoinTable(
-//      name="USER_VEHICLE",
-//      joinColumns=@JoinColumn(name="USER_ID"),
-//      inverseJoinColumns=@JoinColumn(name="VEHICLE_ID"))
-  
+  @OneToMany(cascade=CascadeType.PERSIST)
   private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
 
   public Collection<Vehicle> getVehicles() {

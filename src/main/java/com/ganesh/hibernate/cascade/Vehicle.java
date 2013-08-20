@@ -1,15 +1,10 @@
-package com.ganesh.hibernate.one2many;
+package com.ganesh.hibernate.cascade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name="VEHICLE")
@@ -22,19 +17,7 @@ public class Vehicle {
   @Column(name="VEHICLE_NAME")
   private String vehicleName;
   
-  @ManyToOne
-  @JoinColumn(name="USER_ID")
-  @NotFound(action=NotFoundAction.IGNORE)
-  private UserDetails user;
   
-  public UserDetails getUser() {
-    return user;
-  }
-
-  public void setUser(UserDetails user) {
-    this.user = user;
-  }
-
   public int getVehicleId() {
     return vehicleId;
   }

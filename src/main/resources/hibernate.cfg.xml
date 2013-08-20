@@ -33,15 +33,24 @@
 		<!-- 
 		<mapping class="com.ganesh.hibernate.one2one.UserDetails" />
 		<mapping class="com.ganesh.hibernate.one2one.Vehicle" />
-		 -->
 		
-		<!-- 
+		
+		
 		<mapping class="com.ganesh.hibernate.one2many.UserDetails" />
 		<mapping class="com.ganesh.hibernate.one2many.Vehicle" />
-		-->
+	
+		
 		<mapping class="com.ganesh.hibernate.many2many.UserDetails" />
 		<mapping class="com.ganesh.hibernate.many2many.Vehicle" />
-
+      
+       
+       <mapping class="com.ganesh.hibernate.cascade.UserDetails" />
+		<mapping class="com.ganesh.hibernate.cascade.Vehicle" />
+		 -->
+		
+		<mapping class="com.ganesh.hibernate.inheritance.singletable.Vehicle" />
+		<mapping class="com.ganesh.hibernate.inheritance.singletable.TwoWheeler" />
+		<mapping class="com.ganesh.hibernate.inheritance.singletable.FourWheeler" />
 	</session-factory>
 </hibernate-configuration>
 

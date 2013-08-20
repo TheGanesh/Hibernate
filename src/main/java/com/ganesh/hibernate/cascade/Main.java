@@ -1,4 +1,4 @@
-package com.ganesh.hibernate.one2many;
+package com.ganesh.hibernate.cascade;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,19 +21,17 @@ public class Main {
 
     userDetails.getVehicles().add(vehicle);
     userDetails.getVehicles().add(vehicle2);
-    
-    vehicle.setUser(userDetails);
-    vehicle2.setUser(userDetails);
 
     SessionFactory sessionFactory = Singletons.getSessionFactory();
     Session session = sessionFactory.getCurrentSession();
     Transaction tx = session.beginTransaction();
 
-    session.save(userDetails);
-    
-   
-    session.save(vehicle);
-    session.save(vehicle2);
+    //.persist almost equal to save but enables this cascade operation
+    session.persist(userDetails);
+
+    // These are not required if annotated with @Cascade
+    // session.save(vehicle);
+    // session.save(vehicle2);
 
     tx.commit();
 
