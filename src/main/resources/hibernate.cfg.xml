@@ -46,11 +46,26 @@
        
        <mapping class="com.ganesh.hibernate.cascade.UserDetails" />
 		<mapping class="com.ganesh.hibernate.cascade.Vehicle" />
-		 -->
+		 
 		
 		<mapping class="com.ganesh.hibernate.inheritance.singletable.Vehicle" />
 		<mapping class="com.ganesh.hibernate.inheritance.singletable.TwoWheeler" />
 		<mapping class="com.ganesh.hibernate.inheritance.singletable.FourWheeler" />
+		
+		
+		
+		<mapping class="com.ganesh.hibernate.inheritance.tableperclass.Vehicle" />
+		<mapping class="com.ganesh.hibernate.inheritance.tableperclass.TwoWheeler" />
+		<mapping class="com.ganesh.hibernate.inheritance.tableperclass.FourWheeler" />
+		
+		-->
+		
+		<mapping class="com.ganesh.hibernate.inheritance.join.Vehicle" />
+		<mapping class="com.ganesh.hibernate.inheritance.join.TwoWheeler" />
+		<mapping class="com.ganesh.hibernate.inheritance.join.FourWheeler" />
+		
+		
+		
 	</session-factory>
 </hibernate-configuration>
 
