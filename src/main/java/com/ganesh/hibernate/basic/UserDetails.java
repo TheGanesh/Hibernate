@@ -23,9 +23,11 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.SelectBeforeUpdate;
 import org.hibernate.annotations.Type;
 
 @Entity
+@SelectBeforeUpdate
 @Table(name="USER_DETAILS")
 public class UserDetails {
   
