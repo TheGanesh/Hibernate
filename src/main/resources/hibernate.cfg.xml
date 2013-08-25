@@ -26,9 +26,11 @@
 		<property name="show_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 
-		<!-- <mapping class="com.ganesh.hibernate.basic.UserDetails" />  -->
+		
+		
+		<mapping class="com.ganesh.hibernate.basic.UserDetails" />  
 		
 		<!-- 
 		<mapping class="com.ganesh.hibernate.one2one.UserDetails" />
@@ -63,11 +65,12 @@
 		<mapping class="com.ganesh.hibernate.inheritance.join.Vehicle" />
 		<mapping class="com.ganesh.hibernate.inheritance.join.TwoWheeler" />
 		<mapping class="com.ganesh.hibernate.inheritance.join.FourWheeler" />
-		
-		-->
-		
+			
 		<mapping class="com.ganesh.hibernate.namedquery.UserDetails" />
 		
+		<mapping class="com.ganesh.hibernate.criteria.UserDetails" />
+		
+		-->
 	</session-factory>
 </hibernate-configuration>
 
